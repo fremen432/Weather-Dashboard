@@ -1,0 +1,79 @@
+:root {
+    --main-color: cadetblue;
+    --main-color-hover: rgb(137, 175, 177);
+
+    --color-2: rgb(0, 38, 141);
+    --color-2-hover: rgb(85, 130, 255);
+
+
+    --button-color-2: rgb(74, 107, 255);
+    --button-color-2-hover: rgb(163, 180, 255);
+
+
+    margin: 0px;
+    padding: 0px;
+}
+
+.row {
+margin: 0px;
+padding: 0px;
+}
+
+h2 {
+    color: blue;
+    font-weight: bold;
+    font-size: 1px;
+}
+h3 {
+    font-size: small;
+}
+
+
+header {
+    background-color: var(--main-color);
+    color: white;
+}
+
+#search-btn{
+    background-color: var(--main-color);
+    color: white;
+}
+
+#search-btn:hover {
+    background-color: var(--main-color-hover);
+}
+
+.forecast-card {
+    background-color: var(--color-2);
+    color: white;
+    margin: 5px;
+}
+
+#city-weather{
+    border: 2px solid black;
+    padding: 5px;
+}
+
+#input {
+    margin: 10px;
+}
+
+#result {
+    margin: 10px;
+}
+
+#info{
+    margin-right: 3px;
+
+    margin-left: 3px;
+}
+
+.search-history-append{
+    background-color: var(--color-2);
+    color: white;
+    margin: 3px;
+
+}
+.search-history-append:hover{
+    background-color: var(--color-2-hover)
+}
