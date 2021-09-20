@@ -68,12 +68,12 @@ header {
     margin-left: 3px;
 }
 
-.search-history-append{
+.searchHistory-append{
     background-color: var(--color-2);
     color: white;
     margin: 3px;
 
 }
-.search-history-append:hover{
+.searchHistory-append:hover{
     background-color: var(--color-2-hover)
 }
