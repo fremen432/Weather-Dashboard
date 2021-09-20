@@ -34,12 +34,12 @@ header {
     color: white;
 }
 
-#search-btn{
+#searchBtn{
     background-color: var(--main-color);
     color: white;
 }
 
-#search-btn:hover {
+#searchBtn:hover {
     background-color: var(--main-color-hover);
 }
 

@@ -1,43 +1,36 @@
 "api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}"
 
-// Query Selectors
-
 // Variables
-var cityName = document.querySelector("#city-name");
-var searchBtn = document.querySelector("#search-btn");
-
-
-var apiFiveDay = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + apiKey;
-
+var apiFiveDay = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=56ef42523d8ac74ceb13ce7f908fa8e6;
 // var apiOneCall = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=" + part + "&appid=" + apiKey;
 
-const apiKey = "56ef42523d8ac74ceb13ce7f908fa8e6";
-
+// Query Selecors
+var cityName = document.querySelector("#cityName");
+var searchBtn = document.querySelector("#searchBtn");
 
 // Functions
 
-
-
 var search = function() {
-
+        console.log("search function is working");
+    
     var city = $(this).siblings('textarea').val().trim();
+        console.log(city);
+        console.log(apiFiveDay);
 
-    
+    localStore(city);
+    createHistoryBtn(city);
+};
 
-    // Save data to local storage
-    saveData(city[i]);
+// Save data to local storage
+var localStore = function(city){
+    window.localStorage.setItem('cityName', city);
+};
 
-    // Append searched city name as a button and append to "Search History" div
-    $('#search-history').append("<button id='appendBtn' class='search-history-append col-sm-10' >" + city[i] + "</button>")
-    $('#appendBtn').click(function(){
+var createHistoryBtn = function(city) {
+    $.each(city, function(list, item) {
+        $('#search-history').append("<button id='appendBtn' class='search-history-append col-sm-10' >" + city + "</button>");
 
-    
-    alert("You have clicked on " + city[i]);
-
-    });
-    console.log(city);
-
-    fetchData(city);
+    })
 };
 
 var fetchData = function(cityName){
@@ -61,28 +54,19 @@ var fetchData = function(cityName){
 
     })
 
-    console.log(fetch(apiFiveDay));
+console.log(fetch(apiFiveDay));
 
-    // fetch(apiFiveDay);
+};
 
-    };
+var loadData = function() {
+    var name = JSON.parse(localStorage.getItem("cityName"));
 
-
-
-// Save data to local storage
-var saveData = function(city){
-
-    window.localStorage.setItem('City Name', city);
-}
-
-// var test = function(){
-
-//     console.log(cityName);
-// };
-
-// Event listener
-// cityName.addEventListener('submit', test);
+    $.each(name, function(list, item){
+        createHistoryBtn(item);
+        console.log(item);
+    })
+};
 
 $('#search-btn').on('click', search);
 
-
+loadData();
