@@ -42,7 +42,7 @@ allCities.forEach(createSearchHistoryBtn);
 searchBtn.onclick = e => {
 
     e.preventDefault();
-    console.log("the onclick function for searchBtn is working!")
+    // console.log("the onclick function for searchBtn is working!")
 
     const newCity = addCity(
         cityName.value
@@ -50,14 +50,38 @@ searchBtn.onclick = e => {
 
     createSearchHistoryBtn(newCity);
 
-    cityName.value = "";
-
+    getLatLon();
     console.log();
 
 };
 
+var getLatLon = function() {
 
+    console.log("getLatLon function is working!");
+    // console.log(cityName.value);
 
+    var apiUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName.value + "&appid=56ef42523d8ac74ceb13ce7f908fa8e6";
+
+    console.log(apiUrl);
+
+    fetch(apiUrl)
+        .then(res => res.json())
+        .then(data => console.log(data))
+        // .then(data => console.log(data.city.coord))
+
+        console.log("fetch request has gone through");
+        
+    };
+
+// if (res.ok){
+//     console.log(res.value);
+//     res.JSON().then(function(data){
+//         console.log("The function has responded successfuly");
+//         console.log(data);
+//     })
+// } else {
+//     console.log("error: please enter a valid city name");
+// }
 
 // Old code ------------------------------------------------------------------------
 
