@@ -72,6 +72,8 @@ var getLatLon = function() {
         console.log("fetch request has gone through");
         
     };
+    
+    // Old code ------------------------------------------------------------------------
 
 // if (res.ok){
 //     console.log(res.value);
@@ -83,7 +85,6 @@ var getLatLon = function() {
 //     console.log("error: please enter a valid city name");
 // }
 
-// Old code ------------------------------------------------------------------------
 
 // var search = function() {
 //         console.log("search function is working");
