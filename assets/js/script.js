@@ -14,6 +14,8 @@ const cityInput = cityName["name"]
 
 const allCities = JSON.parse(localStorage.getItem("allCities")) || [];
 
+// var currentCity = ;
+
 // Functions
 
 const addCity = (name) => {
@@ -25,6 +27,7 @@ const addCity = (name) => {
 
     return {name};
 };
+
 const createSearchHistoryBtn = ({name}) => {
     // create elements
     const cityBtn = document.createElement("button");
@@ -49,30 +52,44 @@ searchBtn.onclick = e => {
     );
 
     createSearchHistoryBtn(newCity);
+    getLatLon(cityName.value);
 
-    getLatLon();
     console.log();
 
 };
 
-var getLatLon = function() {
+var getLatLon = function(name) {
 
     console.log("getLatLon function is working!");
-    // console.log(cityName.value);
 
-    var apiUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName.value + "&appid=56ef42523d8ac74ceb13ce7f908fa8e6";
+    var apiUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + name + "&appid=56ef42523d8ac74ceb13ce7f908fa8e6";
 
     console.log(apiUrl);
 
     fetch(apiUrl)
         .then(res => res.json())
-        .then(data => console.log(data))
-        // .then(data => console.log(data.city.coord))
+        .then(data => {
+            console.log(data),
+            console.log(data.city.coord.lat, data.city.coord.lon)
+            getWeather(data.city.coord.lat, data.city.coord.lon)
+        })
+        console.log(data)
 
         console.log("fetch request has gone through");
-        
-    };
+        console.log(name)
+};
+
+var getWeather = function(lat, lon){
+    console.log(lat, lon);
     
+};
+
+
+// var test = () => {console.log(cityName.value)};
+// test();
+
+
+
     // Old code ------------------------------------------------------------------------
 
 // if (res.ok){
