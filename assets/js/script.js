@@ -158,6 +158,17 @@ var displayCurrentWeather = function(name, date, temp, humidity, wind_speed, uvi
 
 };
 
+var create5DaySection = function(){
+    var divEl = $("<div>").addClass("row-md d-flex flex-column justify-content-around forecast")
+    var h2El = $("<h3>").text("5-Day Forecast:").addClass("pt-3 pb-2");
+    var cardDiv = $("<div>").addClass("d-flex flex-row justify-content-between").attr("id", "5DayCard");
+
+    divEl.append(h2El);
+    divEl.append(cardDiv);
+
+    $("#display-data").append(divEl)
+}
+
 
 // var test = () => {console.log(cityName.value)};
 // test();
